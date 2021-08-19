@@ -1,0 +1,96 @@
+<!-- views/index.ejs -->
+<!doctype html>
+<html>
+<head>
+	<title>Node Authentication</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="/../uploads/roomsetting.css"> 
+   
+   
+    </head>   
+    <body>
+   
+    
+      <div class="sm-list">
+        <a style="font-size:x-large;" class="fa fa-arrow-circle-left" href="/dashboard"> Go Back</a> 
+        <a class="btn btn-default btn-sm" href="/room/update/<%= myroom._id %>">Edit Room</a>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+      </div>    
+    
+  
+        <nav class = "nav">
+            
+          <div class="smallcontainer">
+            <ul class = "nav-list">
+                <li class ="nav-item1">
+                <b>Room Name</b>: <b><%= myroom.roomname %></b>
+                </li>
+                <li class ="nav-item2">
+                <b>Created On</b>: <%= myroom.created.toDateString() %>
+                </li>
+              <li class ="nav-item3">
+            
+                <% if(myroom.visible === true){ %>
+                  <b>Room Status</b>: Enabled <strong class="fa fa-check-circle" style="color: rgb(22, 233, 50);"></strong>
+                <%} else { %>
+                 <b>Room Status</b>: Disabled <strong class="fa fa-times-circle" style="color: rgb(226, 39, 39);"></strong>
+                 <%}  %>
+              </li>      
+           </ul>
+           </div>
+          </nav>
+        
+  
+ 
+
+
+           
+      
+       
+        <img class="imag" src="data:img/<%=img.contentType%>;base64,
+        <%=img.toString('base64')%>"  width="56%" onContextMenu="return false;">
+ 
+        <br>
+        <div   class="container">
+            <p>
+                 <b class = "des" font-size: x-large; color: white;">Discription : </b><b style="font-size: 18px; color: rgb(43, 37, 37);"><%= myroom.disc %></b><br>
+            </p>
+        </div>
+     
+  
+        <hr>
+        <table class="tab">
+        <h3><b class = "visit" style="color: white;">Visiters : </b></h3>
+      
+         
+        <% if(myroom.visiters.length > 0){ %>
+          <tr>
+            <th>Visiter</th>
+            <th>Email</th>
+            <th>Date/Time</th>
+          </tr>
+           <%  for(var i=myroom.visiters.length-1; i >= 0; i--) { %>
+            <tr>
+                <td> <%= myroom.visiters[i].username%></td>
+                <td><%= myroom.visiters[i].email%></td>
+                <td><%= myroom.visiters[i].visited%></td>
+            </tr>  
+                
+            <% } %>
+        </form>
+         <%} else { %>
+          <h><b class = "visit" style="color: white;">No Visitors to display</b></h4>
+         <%}  %>
+       
+
+        </table>
+       
+    
+
+
+
+</body>
+      
+
+</html>
