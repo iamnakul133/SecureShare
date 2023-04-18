@@ -1,0 +1,91 @@
+<!-- views/login.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Secure Share</title>
+    <link
+      rel="shortcut icon"
+      href="./uploads/images/secure-share-logo.png"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"
+    />
+
+    <!-- load bootstrap css -->
+    <link
+      rel="stylesheet"
+      href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"
+    />
+    <!-- load fontawesome -->
+    <link rel="stylesheet" href="./uploads/adminlogin.css" />
+  </head>
+
+  <body>
+    <section class="landing-page">
+      <div class="container">
+        <div class="pos">
+          <div class="col-sm-6 col-sm-offset-3">
+            <h3 style="color: rgba(64, 212, 205, 0.829)">
+              <span
+                style="color: rgba(64, 212, 205, 0.829)"
+                class="fa fa-sign-in"
+              ></span>
+              <b>Login</b>
+            </h3>
+
+            <!-- show any messages that come back with authentication -->
+            <% if (message.length > 0) { %>
+            <div class="alert alert-danger"><%= message %></div>
+            <% } %>
+
+            <!-- LOGIN FORM -->
+            <form action="/adminlogin" method="post">
+              <div class="form-group">
+                <label style="color: white">Email</label>
+                <input type="text" class="form-control" name="email" />
+              </div>
+              <div class="form-group">
+                <label style="color: white">Password</label>
+                <input type="password" class="form-control" name="password" />
+              </div>
+
+              <button type="submit" class="btn btn-outline-success">
+                <b>Login</b>
+              </button>
+            </form>
+
+            <hr />
+            <p><a href="/forgotpassword">Forgot password?</a></p>
+            <p style="color: white">
+              <b>Need an account?</b><a href="/adminregister">Signup</a>
+            </p>
+            <p style="color: white"><b>Or Go </b><a href="/">Home</a>.</p>
+          </div>
+        </div>
+      </div>
+
+      <img
+        src="./uploads/images/liq-1.png"
+        alt=""
+        class="blob blob-1 hue-shift"
+      />
+      <img
+        src="./uploads/images/liq-2.png"
+        alt=""
+        class="blob blob-2 hue-shift"
+      />
+      <img
+        src="./uploads/images/liq-3.png"
+        alt=""
+        class="blob blob-3 hue-shift"
+      />
+      <img
+        src="./uploads/images/liq-6.png"
+        alt=""
+        class="blob blob-4 hue-shift"
+      />
+    </section>
+  </body>
+</html>

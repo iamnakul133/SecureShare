@@ -1,0 +1,75 @@
+<!-- views/signup.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Node Authentication</title>
+    <link
+      rel="shortcut icon"
+      href="./uploads/images/secure-share-logo.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link rel="stylesheet" href="./uploads/adminlogin.css"> 
+   
+</head>
+<body>
+    <section class="landing-page">
+    <div class="container">
+    
+
+    <div class="col-sm-6 col-sm-offset-3">
+
+        <h3 style="color: rgb(87, 213, 230)"><span style="color:rgba(74, 211, 211, 0.959)" class ="fa fa-sign-in"></span><b> SignUp</b></h3>
+
+    <!-- show any messages that come back with authentication -->
+    <% if (typeof message !== 'undefined' && message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+    <% } %>
+
+    <!-- LOGIN FORM -->
+    <form action="/adminregister" method="post">
+        <div class="form-group">
+            <label style="color: white">Username</label>
+            <input type="text" class="form-control" name="username">
+            <% if(typeof error !== 'undefined' && error.username) { %>
+                <p><%= error.username.msg %></p>
+             <% } %>
+              
+        </div>
+        <div class="form-group">
+            <label style="color: white">Email</label>
+            <input  type="email" class="form-control" name="email">
+        </div>
+        <div class="form-group">
+            <label style="color: white">Password</label>
+            <input type="password" class="form-control" name="password">
+            <% if(typeof error !== 'undefined' && error.password) { %>
+                <p><%= error.password.msg %></p>
+             <% } %>
+                
+    
+        </div>
+        <div class="form-group">
+            <label style="color: white">Confirm Password</label>
+            <input type="password" class="form-control" name="confirm_password">
+        </div>
+        <button type="submit"  class="btn btn-outline-success">Signup</button>
+    </form>
+
+    <hr>
+
+    <p style="color: white"><b>Already have an account? </b><a href="/adminlogin">Login</a></p>
+    <p style="color: white"><b>Or Go </b><a href="/"> Home</a>.</p>
+
+</div>
+</div>
+</div>
+
+        <img src="./uploads/images/liq-1.png" alt="" class="blob blob-1 hue-shift">
+        <img src="./uploads/images/liq-2.png" alt="" class="blob blob-2 hue-shift">
+        <img src="./uploads/images/liq-3.png" alt="" class="blob blob-3 hue-shift">
+        <img src="./uploads/images/liq-6.png" alt="" class="blob blob-4 hue-shift">
+</section>
+</body>
+</html>
